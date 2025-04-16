@@ -1,6 +1,6 @@
 import streamlit as st
 
-def print_x_block(times) 
+def print_x_block(times):
     x_row = "X" * 100000000 #Prints one long row of Xs
     for _ in range(times):
         st.text(x_row)
