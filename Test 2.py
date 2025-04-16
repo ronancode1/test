@@ -1,7 +1,7 @@
 import streamlit as st
 
 def print_x_block(times):
-    x_row = "XXXXX" * 1000000  # Much smaller row
+    x_row = "X" * 10000000  # Much smaller row
     for _ in range(times):
         st.text(x_row)
 
