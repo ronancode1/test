@@ -17,6 +17,7 @@ def age_check(age_enter):
     else:
         print("You Need to Enter a Valid Age")
 
+# Starts The Function
 age_check(enter_age)
     
     
