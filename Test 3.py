@@ -1,6 +1,6 @@
 print("Welcome To The Blot Joint")
 enter_age = (16)
-print(enter_age)
+print("Enter Age Is", enter_age)
 
 
  
