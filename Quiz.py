@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 st.title("🧠 Python Quiz Game")
 st.subheader("Answer all questions below. Click **Submit Answers** to find out how many coins you earned!")
 
