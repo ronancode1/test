@@ -1,20 +1,23 @@
 import streamlit as st
 
-st.title("🪙 Python Quiz Game")
-st.subheader("Answer questions about Python to earn coins!")
+st.title("🧠 Python Quiz Game")
+st.subheader("Answer all questions below. Click **Submit Answers** to find out how many coins you earned!")
 
-# Initialize coin in session state
+# Initialize session state for coins and submission
+if "submitted" not in st.session_state:
+    st.session_state.submitted = False
 if "coin" not in st.session_state:
     st.session_state.coin = 0
 
-# Helper functions
-def coin_gain():
-    st.session_state.coin += 1
+# Reset button
+if st.button("🔄 Reset Quiz"):
+    st.session_state.submitted = False
+    st.session_state.coin = 0
+    for i in range(11):
+        st.session_state[f"q{i}"] = None
+    st.experimental_rerun()
 
-def coin_loss():
-    st.session_state.coin -= 1
-
-# Question structure
+# Questions and answers
 questions = [
     {
         "text": "What best describes a Python list?",
@@ -139,22 +142,38 @@ questions = [
     },
 ]
 
-# Ask each question using selectbox
+# Display all questions
 for i, q in enumerate(questions):
-    with st.expander(f"Question {i+1}"):
-        selected = st.radio(q["text"], list(q["options"].values()), key=f"q{i}")
+    st.radio(
+        label=f"**Q{i+1}:** {q['text']}",
+        options=[f"{key}. {value}" for key, value in q["options"].items()],
+        key=f"q{i}",
+        index=None,
+    )
 
-        # Determine user's selected letter
-        selected_letter = [letter for letter, text in q["options"].items() if text == selected]
-        if selected_letter:
-            if selected_letter[0] == q["correct"]:
-                st.success("Correct!")
-                coin_gain()
+# Submit button
+if st.button("✅ Submit Answers"):
+    st.session_state.submitted = True
+    st.session_state.coin = 0  # Reset coins before evaluation
+
+    st.markdown("---")
+    st.header("Results:")
+
+    for i, q in enumerate(questions):
+        user_answer = st.session_state.get(f"q{i}")
+        if user_answer:
+            letter = user_answer[0]
+            if letter == q["correct"]:
+                st.success(f"✅ Question {i+1}: Correct!")
+                st.session_state.coin += 1
             else:
-                st.error("Incorrect!")
-                st.info(q["explanation"])
-                coin_loss()
+                st.error(f"❌ Question {i+1}: Incorrect!")
+                st.info(f"**Explanation:** {q['explanation']}")
+        else:
+            st.warning(f"⚠️ Question {i+1}: No answer selected.")
 
-st.markdown("---")
-st.subheader(f"🎉 You finished with **{st.session_state.coin}** coins!")
+# Final score
+if st.session_state.submitted:
+    st.markdown("---")
+    st.subheader(f"🎉 You finished with **{st.session_state.coin}** coins!")
 
