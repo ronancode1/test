@@ -4,14 +4,14 @@ import shutil
 # Target folder where all organized files will go
 target_root = r"C:\Users\gboy1\OneDrive\Documents\All_Files"
 
-# Source folders to search through
+# Source folders to search through 'Enter The file paths you want to organize'
 source_folders = [
     r"C:\Users\gboy1\Downloads",
     r"C:\Users\gboy1\Documents",
     r"C:\Users\gboy1\Music",
 ]
 
-# File type to category mapping
+# File type to category mapping 'You can add more file types and categories here'
 extensions = {
     ".jpeg": "Images",
     ".jpg": "Images",
