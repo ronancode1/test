@@ -6,18 +6,9 @@ target_root = r"C:\Users\gboy1\OneDrive\Documents\All_Files"
 
 # Source folders to search through
 source_folders = [
-    r"C:\Users\gboy1\Pictures",
-    r"C:\Users\gboy1\Videos",
     r"C:\Users\gboy1\Downloads",
     r"C:\Users\gboy1\Documents",
     r"C:\Users\gboy1\Music",
-    r"C:\Users\gboy1\Pictures\Grounded",
-    r"C:\Users\gboy1\Pictures\No Mans Sky",
-    r"C:\Users\gboy1\Pictures\Roblox",
-    r"C:\Users\gboy1\Pictures\Camera Roll",
-    r"C:\Users\gboy1\Pictures\Screenshots",
-    r"C:\Users\gboy1\Pictures\Saved Pictures",
-    r"C:\Users\gboy1\Videos\Captures",
 ]
 
 # File type to category mapping
