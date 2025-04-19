@@ -6,11 +6,18 @@ target_root = r"C:\Users\gboy1\OneDrive\Documents\All_Files"
 
 # Source folders to search through
 source_folders = [
-    os.path.join(os.path.expanduser("~"), "Pictures"),
-    os.path.join(os.path.expanduser("~"), "Videos"),
-    os.path.join(os.path.expanduser("~"), "Downloads"),
-    os.path.join(os.path.expanduser("~"), "Documents"),
-    os.path.join(os.path.expanduser("~"), "Music"),
+    r"C:\Users\gboy1\Pictures",
+    r"C:\Users\gboy1\Videos",
+    r"C:\Users\gboy1\Downloads",
+    r"C:\Users\gboy1\Documents",
+    r"C:\Users\gboy1\Music",
+    r"C:\Users\gboy1\Pictures\Grounded",
+    r"C:\Users\gboy1\Pictures\No Mans Sky",
+    r"C:\Users\gboy1\Pictures\Roblox",
+    r"C:\Users\gboy1\Pictures\Camera Roll",
+    r"C:\Users\gboy1\Pictures\Screenshots",
+    r"C:\Users\gboy1\Pictures\Saved Pictures",
+    r"C:\Users\gboy1\Videos\Captures",
 ]
 
 # File type to category mapping
@@ -29,6 +36,8 @@ extensions = {
     ".wav": "Audio",
     ".py": "Scripts",
     ".stl": "Models",
+    ".3mf": "Models",
+    ".exe": "Applications",
 }
 
 # Create root target folder if it doesn't exist
