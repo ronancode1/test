@@ -41,14 +41,16 @@ for i in range(Total_Problems):
 
 end_time = time.time()
 total_time = end_time - start_time
+total_time = round(total_time, 2)
 if total_time >= 60:
-    total_time = round(total_time / 60, 2) + " minutes."
+    total_time = round(total_time / 60, 2)
+    print("____________________________")
+    print("Nice Work! You finished In", total_time, "Minutes.")
+    print("You got " + str(wrong) + " wrong")
 else:
-    total_time = round(total_time, 2) + " seconds."
-
-print("____________________________")
-print("Nice Work! You finished In ", total_time,)
-print("You got " + str(wrong) + " wrong")
+    print("____________________________")
+    print("Nice Work! You finished In", total_time, "Seconds.")
+    print("You got " + str(wrong) + " wrong")
 
 
 
