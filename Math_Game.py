@@ -8,7 +8,7 @@ OPERATORS = ['+', '-', '*']
 MIN_OPERAND = 3
 MAX_OPERAND = 25
 
-Total_Problems = 10
+Total_Problems = 1
 
 def generate_problem():
     Left = random.randint(MIN_OPERAND, MAX_OPERAND)
@@ -41,11 +41,13 @@ for i in range(Total_Problems):
 
 end_time = time.time()
 total_time = end_time - start_time
-if total_time <=60:
-    total_time = round(total_time / 60)
+if total_time >= 60:
+    total_time = round(total_time / 60, 2) + " minutes."
+else:
+    total_time = round(total_time, 2) + " seconds."
 
 print("____________________________")
-print("Nice Work! You finished In ", total_time, " seconds.")
+print("Nice Work! You finished In ", total_time,)
 print("You got " + str(wrong) + " wrong")
 
 
