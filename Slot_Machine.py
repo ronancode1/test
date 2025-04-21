@@ -1,4 +1,5 @@
 # Slot Machine Game
+card_balence = 100
 def confirm_deposit(a):
     print(f"Your Deposit Amount Is: ${a} \n Please Confirm")
     while True:
@@ -23,9 +24,13 @@ def deposit():
         amount = input("What Would You Like To Deposit? Press 'q' to Quit: $")
         if amount.isdigit():
             amount = int(amount)
+            
             if amount > 0:
                 confirm_deposit(amount)
                 return amount
+            elif amount > card_balence:
+                print("You Dont Have Enough Money Please Enter Another Amount")
+                continue
         elif amount.lower() == "q":
             exit()
         else:
