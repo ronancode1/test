@@ -2,7 +2,7 @@
 import random
 
 MAX_LINES = 3
-CARD_BALENCE = 100
+CARD_BALENCE = 500
 MIN_BET = 1
 MAX_BET = 1000000
 
@@ -11,22 +11,16 @@ COLS = 3
 
 symbol_count = {
     " 🍀 ": 1,
-    " 💎 ": 2,
-    " ⭐ ": 3,
-    " 🍒 ": 5,
-    " 🪨 ": 6,
-    " 💩 ": 6,
-    " 💣 ": 4
+    " 💎 ": 3,
+    " ⭐ ": 5,
+    " 🍒 ": 7,
 }
 
 symbol_value = {
     " 🍀 ": 10,
-    " 💎 ": 5,
-    " ⭐ ": 3.5,
-    " 🍒 ": 2.5,
-    " 🪨 ": 2,
-    " 💩 ": 1.5,
-    " 💣 ": 0
+    " 💎 ": 7,
+    " ⭐ ": 4.5,
+    " 🍒 ": 3.5,
 }
 
 def check_winnings(columns, lines, bet):
@@ -167,7 +161,6 @@ def Betting():
         print("You Lost!")
         CARD_BALENCE = CARD_BALENCE + (spending_money - total_bet)
         CARD_BALENCE = int(CARD_BALENCE)
-        print(CARD_BALENCE)
     else:
         print(f"You Won On Lines:", *winning_lines)
         CARD_BALENCE = CARD_BALENCE + winnings
