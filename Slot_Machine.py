@@ -31,6 +31,7 @@ symbol_value = {
 
 def check_winnings(columns, lines, bet):
     winnings = 0
+    winning_lines = []
 
     for line in range(lines):
         symbol = columns[0][line]
@@ -40,9 +41,10 @@ def check_winnings(columns, lines, bet):
                 break
         else:
             winnings += symbol_value[symbol] * bet
-            print(f"You Won ${winnings} On Line {line + 1} With {symbol}")
+            winning_lines.append(line + 1)
+            print(winnings)
             
-    return winnings
+    return winnings, winning_lines
 
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
@@ -76,13 +78,12 @@ def print_slot_machine(columns):
 
     
 def confirm_deposit(a):
-    print(f"Your Deposit Amount Is: ${a} \nPlease Confirm")
+    print(f"Your Bet Amount Is: ${a} \nPlease Confirm")
     while True:
         confirmation = input("Press 'y' to confirm or 'n' to cancel: ").lower()
         if confirmation == "y":
             global CARD_BALENCE
-            print(f"Your Deposit Amount Of ${a} Has Been Confirmed")
-            cb = CARD_BALENCE
+            print(f"Your Bet Amount Of ${a} Has Been Confirmed")
             CARD_BALENCE = (CARD_BALENCE - a)
             print(f"Your Remaining Balance Is: ${CARD_BALENCE}")
             return CARD_BALENCE
@@ -100,7 +101,7 @@ def confirm_deposit(a):
             continue
 def deposit():
     while True:
-        amount = input("What Would You Like To Deposit? Press 'q' to Quit: $")
+        amount = input("What Would You Like To Bet? Press 'q' to Quit: $")
         if amount.isdigit():
             amount = int(amount)
             if amount > 0 and amount <= CARD_BALENCE:
@@ -116,6 +117,7 @@ def deposit():
             continue
 
 def Betting():
+    global CARD_BALENCE
     def get_number_of_lines():
         while True:
             lines = input("Enter The Number Of Lines To Bet On (1-" + str(MAX_LINES)+ ")?: ")
@@ -158,7 +160,24 @@ def Betting():
     
     slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
     print_slot_machine(slots)
-    winnings = check_winnings(slots, lines, bet)
-    total_winnings = winnings - total_bet
+    winnings, winning_lines = check_winnings(slots, lines, bet)
+    CARD_BALENCE = CARD_BALENCE + winnings
+    print(f"Your Total Winnings Are: ${winnings}")
+    if winnings == 0:
+        print("You Lost!")
+    else:
+        print(f"You Won On Lines:", *winning_lines)
+    print(f"Your New Balance Is: ${CARD_BALENCE}")
+    while True:
+        play_again = input("Would You Like To Bet Again? (y/n): ").lower()
+        if play_again == "y":
+            Betting()
+            break
+        elif play_again == "n":
+            print("Thank You For Playing!")
+            exit()
+        else:
+            print("Invalid Input. Please Press 'y' to play again or 'n' to quit.")
+            continue
 
 Betting()
