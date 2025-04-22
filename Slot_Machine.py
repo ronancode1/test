@@ -10,14 +10,39 @@ ROWS = 3
 COLS = 3
 
 symbol_count = {
-    "🍀": 1,
-    "💎": 2,
-    "⭐": 3,
-    "🍒": 5,
-    "🪨": 6,
-    "💩": 6,
-    "💣": 4
+    " 🍀 ": 1,
+    " 💎 ": 2,
+    " ⭐ ": 3,
+    " 🍒 ": 5,
+    " 🪨 ": 6,
+    " 💩 ": 6,
+    " 💣 ": 4
 }
+
+symbol_value = {
+    " 🍀 ": 10,
+    " 💎 ": 5,
+    " ⭐ ": 3.5,
+    " 🍒 ": 2.5,
+    " 🪨 ": 2,
+    " 💩 ": 1.5,
+    " 💣 ": 0
+}
+
+def check_winnings(columns, lines, bet):
+    winnings = 0
+
+    for line in range(lines):
+        symbol = columns[0][line]
+        for column in columns:
+            symbol_to_check = column[line]
+            if symbol != symbol_to_check:
+                break
+        else:
+            winnings += symbol_value[symbol] * bet
+            print(f"You Won ${winnings} On Line {line + 1} With {symbol}")
+            
+    return winnings
 
 def get_slot_machine_spin(rows, cols, symbols):
     all_symbols = []
@@ -42,9 +67,11 @@ def print_slot_machine(columns):
     for row in range(len(columns[0])):
         for i, column in enumerate(columns):
             if i != len(columns) - 1:
-                print(column[row], "|")
+                print(column[row], end="|")
             else:
-                print(column[row])
+                print(column[row], end="")
+
+        print()
         
 
     
@@ -131,5 +158,7 @@ def Betting():
     
     slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
     print_slot_machine(slots)
+    winnings = check_winnings(slots, lines, bet)
+    total_winnings = winnings - total_bet
 
 Betting()
