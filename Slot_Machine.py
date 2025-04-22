@@ -78,14 +78,13 @@ def print_slot_machine(columns):
 
     
 def confirm_deposit(a):
-    print(f"Your Bet Amount Is: ${a} \nPlease Confirm")
+    print(f"Your Deposit Amount Is: ${a} \nPlease Confirm")
     while True:
         confirmation = input("Press 'y' to confirm or 'n' to cancel: ").lower()
         if confirmation == "y":
             global CARD_BALENCE
-            print(f"Your Bet Amount Of ${a} Has Been Confirmed")
-            CARD_BALENCE = (CARD_BALENCE - a)
-            print(f"Your Remaining Balance Is: ${CARD_BALENCE}")
+            CARD_BALENCE = CARD_BALENCE - a
+            print(f"Your Deposit Amount Of ${a} Has Been Confirmed")
             return CARD_BALENCE
         elif confirmation == "n":
             print("Deposit Cancelled")
@@ -101,7 +100,7 @@ def confirm_deposit(a):
             continue
 def deposit():
     while True:
-        amount = input("What Would You Like To Bet? Press 'q' to Quit: $")
+        amount = input("What Would You Like To Deposit? Press 'q' to Quit: $")
         if amount.isdigit():
             amount = int(amount)
             if amount > 0 and amount <= CARD_BALENCE:
@@ -153,6 +152,7 @@ def Betting():
         return bet
 
     spending_money = deposit()  
+    print(f"You Deposited ${spending_money} And Your Current Card Balance Is: ${CARD_BALENCE}")
     lines = get_number_of_lines()
     bet = get_bet()
     total_bet = bet * lines
@@ -161,21 +161,30 @@ def Betting():
     slots = get_slot_machine_spin(ROWS, COLS, symbol_count)
     print_slot_machine(slots)
     winnings, winning_lines = check_winnings(slots, lines, bet)
-    CARD_BALENCE = CARD_BALENCE + winnings
+    
     print(f"Your Total Winnings Are: ${winnings}")
     if winnings == 0:
         print("You Lost!")
+        CARD_BALENCE = CARD_BALENCE + (spending_money - total_bet)
+        CARD_BALENCE = int(CARD_BALENCE)
+        print(CARD_BALENCE)
     else:
         print(f"You Won On Lines:", *winning_lines)
+        CARD_BALENCE = CARD_BALENCE + winnings
+        CARD_BALENCE = int(CARD_BALENCE)
     print(f"Your New Balance Is: ${CARD_BALENCE}")
     while True:
         play_again = input("Would You Like To Bet Again? (y/n): ").lower()
-        if play_again == "y":
+        if CARD_BALENCE == 0:
+            print("You Have No Money Left!")
+            exit()
+        elif play_again == "y":
             Betting()
             break
         elif play_again == "n":
             print("Thank You For Playing!")
             exit()
+       
         else:
             print("Invalid Input. Please Press 'y' to play again or 'n' to quit.")
             continue
