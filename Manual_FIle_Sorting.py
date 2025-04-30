@@ -12,7 +12,7 @@ def createlist():
         if is_valid == True:
             my_list.append(q4)
         else:
-            fix_error()
+            fix_error(q4)
         while True:
             q5 = input("Would You Like To Add Another Item. y/n: ").lower()
             if q5 == "y":
