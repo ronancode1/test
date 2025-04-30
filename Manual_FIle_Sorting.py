@@ -36,7 +36,6 @@ def fix_error(m):
                 my_list.append(q2)
             else:
                 fix_error(q2)   
-                my_list.append(q2)
         elif q1 == "n":
             while True:
                 q3 = input("Would You Like To Recreate The List y/n: ")
