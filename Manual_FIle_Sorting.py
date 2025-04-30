@@ -3,15 +3,17 @@ messedupdigits = []
 
 def createlist():
     while True:
-        q4 = input("What Would You Like To Add To The List Or Enter q To Quit").lower()
+        q4 = input("What Would You Like To Add To The List Or Enter q To Start Sorting").lower()
         if q4 == "q":
             sort()
             return
         is_valid = isinstance(q4, str) and all(c.isalpha() or c.isspace() for c in q4)
         print(f"The Item {q4} is {is_valid}")
         if is_valid == True:
+            print(f"Sucessfuly Added {q4} To List")
             my_list.append(q4)
         else:
+            print("Input Is Invalid")
             fix_error(q4)
         while True:
             q5 = input("Would You Like To Add Another Item. y/n: ").lower()
