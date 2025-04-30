@@ -6,7 +6,7 @@ def createlist():
         q4 = input("What Would You Like To Add To The List Or Enter q To Quit").lower()
         if q4 == "q":
             sort()
-            
+            break
         is_valid = isinstance(q4, str) and all(c.isalpha() or c.isspace() for c in q4)
         print(f"The Item {q4} is {is_valid}")
         if is_valid == True:
