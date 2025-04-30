@@ -30,12 +30,12 @@ def fix_error(m):
         q1 = input(f"Would You Like To Change The Value Of {m} y/n: ").lower()
         if q1 == "y":
             q2 = input(f"What Would You Like To Change {m} To: ")
-            my_list.remove(m)
             my_list.append(q2)
         elif q1 == "n":
             while True:
                 q3 = input("Would You Like To Recreate The List y/n: ")
                 if q3 == "y":
+                    my_list.clear()
                     createlist()
                     break
                 elif q3 == "n":
