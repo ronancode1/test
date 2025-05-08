@@ -62,13 +62,15 @@ def sort_list(ml):
     if len(my_list) >= 2:
         for i in alphabet_order:
             def sort_a(n):
-                for item1 in my_list:
-                    if item1[0] == alphabet_order[n]:
-                        sorted_caractors.insert(1, item1)
-                if len(sorted_caractors) == 1:
-                    continue
-                elif len(sorted_caractors) == 0:
-                    contunue
+                while True:
+                    for item1 in my_list:
+                        if item1[0] == alphabet_order[n]:
+                            sorted_caractors.insert(1, item1)
+                    if len(sorted_caractors) == 1:
+                        continue
+                    elif len(sorted_caractors) == 0:
+                        
+                    
                 
 
                 
