@@ -5,7 +5,7 @@ def createlist():
     while True:
         q4 = input("What Would You Like To Add To The List Or Enter q To Start Sorting").lower()
         if q4 == "q":
-            sort()
+            sort_list()
             return
         is_valid = isinstance(q4, str) and all(c.isalpha() or c.isspace() for c in q4)
         if is_valid == True:
