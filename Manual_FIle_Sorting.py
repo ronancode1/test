@@ -8,7 +8,6 @@ def createlist():
             sort()
             return
         is_valid = isinstance(q4, str) and all(c.isalpha() or c.isspace() for c in q4)
-        print(f"The Item {q4} is {is_valid}")
         if is_valid == True:
             print(f"Sucessfuly Added {q4} To List")
             my_list.append(q4)
@@ -20,7 +19,7 @@ def createlist():
             if q5 == "y":
                 break
             elif q5 == "n":
-                sort()
+                sort_list(my_list)
                 break
             else:
                 continue
@@ -54,6 +53,25 @@ def fix_error(m):
             print("Enter A Valid Answer")
             continue
 
-def sort():
-    print("hi")
+def sort_list(ml):
+    finnished_list = []
+    sorted_caractors = []
+    alphabet_order = [" ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", 
+    "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+    if len(my_list) >= 2:
+        for i in alphabet_order:
+            def sort_a(n):
+                for item1 in my_list:
+                    if item1[0] == alphabet_order[n]:
+                        sorted_caractors.insert(1, item1)
+                if len(sorted_caractors) == 1:
+                    continue
+                elif len(sorted_caractors) == 0:
+                    contunue
+                
+
+                
+                
+
 createlist()
