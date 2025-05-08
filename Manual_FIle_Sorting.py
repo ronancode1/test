@@ -61,7 +61,7 @@ def sort_list(ml):
 
     if len(my_list) >= 2:
         for i in alphabet_order:
-            def sort_a(n):
+            def sort_letter(n):
                 while True:
                     for item1 in my_list:
                         if item1[0] == alphabet_order[n]:
@@ -69,11 +69,7 @@ def sort_list(ml):
                     if len(sorted_caractors) == 1:
                         continue
                     elif len(sorted_caractors) == 0:
+                        sort_letter()
                         
-                    
-                
-
-                
-                
 
 createlist()
