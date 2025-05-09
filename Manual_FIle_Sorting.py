@@ -69,7 +69,7 @@ def sort_list(ml):
                     if len(sorted_caractors) == 1:
                         continue
                     elif len(sorted_caractors) == 0:
-                        sort_letter()
+                        print(f"Nothing Starts With {alphabet_order[i + 1]} In This List")
                         
 
 createlist()
