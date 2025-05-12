@@ -72,8 +72,9 @@ def sort_list(ml):
                         print(f"Nothing Starts With {alphabet_order[i + 1]} In This List")
                     else:
                         for l in alphabet_order:
-                            if sorted_caractors[1] == l:
-                                
+                            stuffforsorting == []
+                            if  == l:
+
                         
 
 createlist()
