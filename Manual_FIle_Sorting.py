@@ -73,8 +73,6 @@ def sort_list(ml):
                     else:
                         for l in alphabet_order:
                             stuffforsorting == []
-                            if  == l:
-
                         
 
 createlist()
