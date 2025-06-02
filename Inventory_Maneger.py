@@ -9,7 +9,7 @@ def add():
 
     q1 = input("What Do You Want To Add To The Inventory: ")
     while True:
-        q2 = input(f"What Is The Category Of The Item, The Categorys Are {categorys} ")
+        q2 = input(f"What Is The Category Of The Item, The Categorys Are {categorys}: ")
         if q2 in categorys:
             break
         else:
@@ -25,8 +25,28 @@ def add():
             q3 = "$" + q3
             break
     while True:
-        q4 = input("How Many Products Do You Have In Stock 'Whole Number'")
+        q4 = input("How Many Products Do You Have In Stock 'Whole Number': ")
         if q4.isdigit:
-            
-        
+            break
+        else:
+            print("Is Not A Whole Number")
+            continue
+    
+    while True:
+        print(f"Confirm Your Deposit Of The Product{q1} That Will Be Put In The Category {q2} With The Price Of {q3} And The Stock Is {q4}")
+        q5 = input("Would You Like To Confirm Your Deposit Enter 'y' To Confirm And Enter 'n' To Re-Enter The Deposit Enter 'q' To Quit").lower()
+        if q5 == "y":
+            print("Deposit Confirmed")
+            break
+        elif q5 == "n":
+            print("Re-Enter The Deposit")
+            add()
+            break
+        elif q5 == "q":
+            Main_Menu()
+            break
+        else:
+            print("Confirm Your Order Again Invalid Awncer")
+            continue
+
 add()
