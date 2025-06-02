@@ -1,5 +1,5 @@
 inventory = {
-    "food": {"item": "hi"},
+    "food": {},
     "cleaning": {},
     "decor": {}
 }
@@ -15,8 +15,18 @@ def add():
         else:
             print("Invalid category. Please choose from the available categories.")
             continue
-            
+
+    while True:
         q3 = input(f"What Is The Price Of This Product/Item  'With Decimal Points': ")
-        q3 = "$" + q3
+        if q3.isdigit:
+            print("There Is No Decimal Point Re-Enter The Price")
+            continue
+        else:
+            q3 = "$" + q3
+            break
+    while True:
+        q4 = input("How Many Products Do You Have In Stock 'Whole Number'")
+        if q4.isdigit:
+            
         
 add()
