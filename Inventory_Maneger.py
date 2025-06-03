@@ -1,9 +1,13 @@
-inventory = {
-    "food": {},
-    "cleaning": {},
-    "decor": {}
+inventory = {}
+all_items = {
+    "blank" = []
 }
+
 categorys = ["food", "cleaning", "decor", "fidget"]
+
+for i in categorys:
+    inventory[i] = {}
+    all_items[i] = []
 
 def add():
 
@@ -38,6 +42,7 @@ def add():
         if q5 == "y":
             print("Deposit Confirmed")
             inventory[q2][q1] = {"price": q3, "stock": q4}
+            all_items[q2].append(q1)
             break
         elif q5 == "n":
             print("Re-Enter The Deposit")
@@ -51,7 +56,8 @@ def add():
             continue
 
 def remove():
-    q1 = input(f"What Category Is The Product You Want To Remove In ")
+    q1 = input(f"What Category Is The Product You Want To Remove The Categorys Are {categorys} ")
+    q2 = inpur(f"What Item In The Category {q1} Do You Want To Add The Items Are {all_items} ")
 
 
 add()
