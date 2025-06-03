@@ -37,6 +37,7 @@ def add():
         q5 = input("Would You Like To Confirm Your Deposit Enter 'y' To Confirm And Enter 'n' To Re-Enter The Deposit Enter 'q' To Quit").lower()
         if q5 == "y":
             print("Deposit Confirmed")
+            inventory[q2][q1] = {"price": q3, "stock": q4}
             break
         elif q5 == "n":
             print("Re-Enter The Deposit")
@@ -48,5 +49,9 @@ def add():
         else:
             print("Confirm Your Order Again Invalid Awncer")
             continue
+
+def remove():
+    q1 = input(f"What Category Is The Product You Want To Remove In ")
+
 
 add()
