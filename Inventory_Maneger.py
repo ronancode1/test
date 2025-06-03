@@ -62,12 +62,32 @@ def remove():
         else:
             print("Invalid Category. Please Choose From The Available Categories Or Add A New One.")
             continue
+
     while True : 
-        q2 = input(f"What Item In The Category {q1} Do You Want To Add The Items Are {all_items}: ").lower()
+        q2 = input(f"What Item In The Category {q1} Do You Want To Remove The Items Are {all_items}: ").lower()
         if q2 in all_items[q1]:
             continue
         else:
             print(f"Invalid Category. Please Choose From The Availible Items In The Category {q1}")
+            continue
+
+    while True:
+        print(f"Confirm Your Removing Of The Product/Item {q2} That Will Be Removed From The Category {q1}")
+        q5 = input("Would You Like To Confirm The Removal Enter 'y' To Confirm, Enter n To Re-ente Enter 'q' To Quit: ").lower()
+        if q5 == "y":
+            print("Removal Confirmed")
+            break
+        elif q5 == "n":
+            print(f"Stop The Removing Of The Item {q2}")
+            remove()            
+            break
+        elif q5 == "q":
+            Main_Menu()
+            break
+        else:
+            print("Confirm Your Order Again Invalid Awncer")
+            continue
+    print("The Item {q2} Has Been Removed From The Category {q1}")
 
 
 
