@@ -76,6 +76,8 @@ def remove():
         q5 = input("Would You Like To Confirm The Removal Enter 'y' To Confirm, Enter n To Re-ente Enter 'q' To Quit: ").lower()
         if q5 == "y":
             print("Removal Confirmed")
+            del inventory[q1][q2]
+            print("The Item {q2} Has Been Removed From The Category {q1}")
             break
         elif q5 == "n":
             print(f"Stop The Removing Of The Item {q2}")
@@ -85,11 +87,8 @@ def remove():
             Main_Menu()
             break
         else:
-            print("Confirm Your Order Again Invalid Awncer")
+            print("Confirm Your Removal Again Invalid Awncer")
             continue
-    print("The Item {q2} Has Been Removed From The Category {q1}")
-
-
 
 
 add()
