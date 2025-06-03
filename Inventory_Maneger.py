@@ -1,7 +1,5 @@
-inventory = {}
-all_items = {
-    "blank" = []
-}
+inventory = {"example": "Hello"}
+all_items = {"example": "Hello"}
 
 categorys = ["food", "cleaning", "decor", "fidget"]
 
