@@ -90,5 +90,7 @@ def remove():
             print("Confirm Your Removal Again Invalid Awncer")
             continue
 
+def Main_Menu():
+    print("Welcome To The Inventory Manager")
 
 add()
