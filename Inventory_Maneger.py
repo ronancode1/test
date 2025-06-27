@@ -56,7 +56,7 @@ def add():
 
 def remove():
     while True:
-        q1 = input(f"What Category Is The Item You Want To Remove The Categorys Are {categorys}: ").lower()
+        q1 = input(f"What Category Is The Item You Want To Remove The Categorys Are\n{categorys}\n: ").lower()
         if q1 in categorys:
             break
         else:
